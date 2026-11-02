@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ventur.City — Design system reference</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="_ds_bundle.js"></script>
+<style>*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;font-family:var(--font-sans);color:var(--black-120);background:var(--green-5);background-image:radial-gradient(var(--green-20) 1px,transparent 1.2px);background-size:18px 18px}
+a{color:var(--green-120);text-decoration:underline;text-underline-offset:2px}a:hover{color:var(--black-120)}
+code,pre,.lib-id,.lib-name,.lib-side-item span,.sw-name,.ty-spec code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.ref-wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.ref-hdr{background:var(--green-100);position:relative;overflow:hidden}
+.ref-hdr::after{content:"";position:absolute;right:-120px;top:-180px;width:460px;height:460px;border-radius:50%;border:1px solid rgba(14,18,25,.12);pointer-events:none}
+.ref-hdr-in{display:flex;align-items:center;gap:24px;padding-top:20px;padding-bottom:20px;position:relative;z-index:1}
+.ref-logo{background:var(--green-0);border-radius:var(--radius-md);padding:12px 18px;display:flex;align-items:center;flex:none}.ref-logo img{height:40px;display:block}
+.ref-title{font:var(--h3-bold)}.ref-tag{font:var(--body-regular);margin-top:4px;color:var(--black-100)}
+.ref-tabs{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--green-15)}
+.ref-tabs-in{display:flex;gap:4px;padding-top:6px;padding-bottom:6px;overflow-x:auto}
+.ref-tab{appearance:none;border:0;background:none;font:var(--body-medium);color:var(--black-20);padding:10px 14px;border-radius:var(--radius-sm);cursor:pointer;white-space:nowrap}
+.ref-tab:hover{color:var(--black-120);background:var(--green-5)}.ref-tab.on{background:var(--green-30);color:var(--black-120);font-weight:700;box-shadow:inset 0 -2px 0 var(--green-120)}
+.ref-main{padding-top:36px;padding-bottom:96px}
+.ref-h1{font:var(--h1-bold);letter-spacing:.01em;margin:0 0 10px}.ref-h2{font:var(--h3-bold);margin:36px 0 6px}.ref-lede{font:var(--body-regular);color:var(--black-20);max-width:760px;margin:0 0 20px;text-wrap:pretty}.ref-sub{font:var(--body-regular);color:var(--black-10);margin:0 0 14px}
+.ref-lede code,.md code{font-size:.88em;background:var(--green-10);padding:1px 6px;border-radius:6px}
+.ref-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:50;min-width:260px}
+/* readme */
+.md{background:var(--green-0);border:1px solid var(--green-15);border-radius:var(--radius-xl);padding:36px 44px;max-width:900px;font:var(--body-regular);line-height:26px}
+.md h2{font:var(--h1-bold);letter-spacing:.01em;margin:0 0 14px}.md h3{font:var(--h3-bold);margin:36px 0 10px;padding-top:24px;border-top:1px solid var(--green-15)}.md h4{font:var(--body-bold);margin:24px 0 8px}
+.md p{margin:0 0 12px;text-wrap:pretty}.md ul{margin:0 0 12px;padding-left:20px}.md li{margin:4px 0}.md li::marker{color:var(--green-120)}
+.md pre{background:var(--green-5);border-radius:var(--radius-sm);padding:14px 16px;overflow:auto;font-size:13px;line-height:20px}.md pre code{background:none;padding:0}
+/* colors */
+.sw-block{margin:0 0 18px}.sw-head{display:flex;gap:12px;align-items:baseline;margin:0 0 8px;font:var(--body-regular);color:var(--black-10)}.sw-head strong{font:var(--body-bold);color:var(--black-120)}
+.sw-ramp{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:8px}
+.sw-tile{appearance:none;text-align:left;border:1px solid var(--green-15);background:var(--green-0);border-radius:12px;padding:6px 6px 10px;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0;transition:border-color 120ms ease}
+.sw-tile:hover{border-color:var(--green-120)}.sw-chip{display:block;height:56px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(14,18,25,.08);margin-bottom:6px}
+.sw-name{font-size:12px;line-height:16px;color:var(--black-120);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 4px}.sw-meta{font:var(--sm-regular);color:var(--black-10);padding:0 4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* type */
+.ty-families{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:8px}
+.ty-family{display:flex;align-items:center;gap:20px;background:var(--green-0);border:1px solid var(--green-15);border-radius:var(--radius-md);padding:20px 24px}.ty-family div{display:flex;flex-direction:column;gap:2px}.ty-family strong{font:var(--body-bold)}.ty-family div span{font:var(--sm-regular);color:var(--black-10)}
+.ty-card{background:var(--green-0);border:1px solid var(--green-15);border-radius:var(--radius-md);padding:4px 24px}
+.ty-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:24px;padding:18px 0;align-items:center}.ty-row+.ty-row{border-top:1px solid var(--green-15)}
+.ty-sample{min-width:0;overflow:hidden;text-overflow:ellipsis}.ty-spec{display:flex;flex-direction:column;gap:2px;font:var(--sm-regular);color:var(--black-20)}.ty-spec code{font-size:13px;font-weight:700;color:var(--black-120)}.ty-num{color:var(--black-10)}
+/* library */
+.lib-search{display:flex;align-items:center;gap:10px;background:var(--green-0);border:1px solid var(--green-15);border-radius:var(--radius-md);padding:0 16px;height:48px;margin-bottom:28px}
+.lib-search input{flex:1;border:0;outline:0;background:none;font:var(--body-regular);color:var(--black-120);height:100%}.lib-search:focus-within{border-color:var(--green-120)}
+.lib-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:start}
+.lib-side{position:sticky;top:72px;max-height:calc(100vh - 92px);overflow:auto;padding-right:8px;border-right:2px solid var(--green-15)}
+.lib-count{font:var(--body-regular);color:var(--black-20);margin:0 0 14px}.lib-side-group{margin:0 0 16px}.lib-side-title{font:var(--sm-bold);text-transform:uppercase;letter-spacing:.06em;color:var(--black-20);margin:0 0 6px 8px}
+.lib-side-item{appearance:none;display:flex;gap:8px;width:100%;text-align:left;border:0;background:none;padding:5px 8px;border-radius:8px;font:var(--body-regular);font-size:14px;color:var(--black-120);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lib-side-item span{font-size:12px;color:var(--black-10);line-height:20px}.lib-side-item:hover{background:var(--green-10)}.lib-side-item.on{background:var(--green-30);font-weight:600}.lib-side-item.on span{color:var(--green-120)}
+.lib-sec>.ref-h2:first-child{margin-top:0}.lib-sec+.lib-sec .ref-h2{margin-top:40px}
+.lib-card{background:var(--green-0);border:1px solid var(--green-15);border-radius:var(--radius-md);margin:12px 0 16px;overflow:hidden}
+.lib-card-head{display:flex;align-items:center;gap:12px;padding:16px 20px 0}.lib-id{font-size:12px;border:1px solid var(--green-20);border-radius:999px;padding:3px 10px;color:var(--black-20)}
+.lib-name{font-size:15px;font-weight:700}.lib-group{margin-left:auto;font:var(--sm-medium);color:var(--black-10)}
+.lib-desc{font:var(--body-regular);color:var(--black-20);margin:8px 20px 12px;text-wrap:pretty}
+.lib-tabs{display:flex;gap:20px;padding:0 20px;border-bottom:1px solid var(--green-15)}
+.lib-tab{appearance:none;border:0;background:none;padding:8px 0;font:var(--body-regular);color:var(--black-10);cursor:pointer;box-shadow:inset 0 -2px 0 transparent}.lib-tab:hover{color:var(--black-120)}.lib-tab.on{color:var(--black-120);font-weight:600;box-shadow:inset 0 -2px 0 var(--green-100)}
+.lib-body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px}
+.lib-panel{border:1px solid var(--green-15);border-radius:12px;padding:18px 20px;background:var(--green-0)}.lib-panel.is-dark{background:var(--black-120);border-color:var(--black-120)}
+.lib-note{font:var(--body-regular);color:var(--black-10);margin:0}
+.lib-glyph{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0;color:var(--green-100)}.lib-glyph span{font:var(--sm-regular);color:var(--black-0)}
+.lib-code{position:relative;background:var(--green-5);border-radius:var(--radius-sm)}.lib-code pre{margin:0;padding:16px 18px;font-size:13px;line-height:21px;overflow:auto;color:var(--black-100)}
+.lib-copy{position:absolute;top:10px;right:10px;appearance:none;border:0;background:var(--green-0);border-radius:8px;padding:4px 10px;font:var(--sm-bold);color:var(--black-120);cursor:pointer;box-shadow:0 0 0 1px var(--green-15)}.lib-copy:hover{background:var(--green-10)}
+@media (max-width:860px){.lib-layout{grid-template-columns:1fr}.lib-side{display:none}.ref-wrap{padding:0 16px}.md{padding:24px 20px}.ty-row{grid-template-columns:1fr;gap:8px}.ref-hdr-in{flex-direction:column;align-items:flex-start}}</style>
+</head><body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#C4E860"/><text x="50" y="62" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="30" fill="#0E1219">VC</text></svg></template>
+<script type="text/markdown" id="readme-src">
+# Ventur.City Design System
+
+Ventur.City (domain ventur.life) — brand and mobile UI foundations for the Ventur.City product. The visual language is a lime-on-slate urban/mobility identity: a punchy uppercase display face (Paytone One), a clean grotesque for UI (Instrument Sans), a single electric lime brand color, cool slate neutrals and warm off-white surfaces.
+
+## Sources
+All material came from uploaded Figma exports (no Figma link, codebase or product screens were provided):
+- Foundations: `uploads/Semantic Color.jpg` (palette), `uploads/Tokens System.png` (semantic tokens), `uploads/Typography System.jpg`, `uploads/Spacing System.jpg`, `uploads/Radius System.jpg`
+- Components (mobile): `uploads/button-mobile.png`, `uploads/form.png`, `uploads/option.png`, `uploads/toast.png`, `uploads/toggle.png`
+- Logos: `uploads/*logo*.png` (primary horizontal/vertical, secondary, logomark × colored/black/white)
+
+Component exports appear to be @2x; measurements were halved. Values that had to be estimated from pixels are noted under Caveats.
+
+## Index
+- `styles.css` — entry point (imports only) → `tokens/fonts.css`, `tokens/colors.css`, `tokens/typography.css`, `tokens/spacing.css`
+- `assets/logos/` — 12 logo PNGs
+- `guidelines/` — foundation specimen cards (Colors, Type, Spacing, Brand)
+- `components/` — React primitives (below)
+- `thumbnail.html`, `SKILL.md`
+- **UI kits** — none. No product screens were supplied, so no screens were recreated (deliberately left out rather than invented).
+
+## Components
+- `components/buttons/` — **Button** (primary / secondary / tertiary / ghost / ghost-light / ghost-brand; sm 24px, lg 40px; `social` "Continue with Platform" layout), **IconButton** (24 / 40 / 54px)
+- `components/forms/` — **TextField** (light & dark, focus, placeholder, disabled), **Option** (icon + label row), **Toggle**
+- `components/feedback/` — **Toast** (neutral / success / warn / danger)
+- `components/core/` — **Icon** (Lucide wrapper)
+- `components/map/` — **CityMap** — stylized OpenStreetMap base map (light/dark) for interactive modules
+- `components/places/` — **PhotoStackMarker** (user photos, count badge, shuffle), **PlaceMarker** (square place photo), **CategoryPin** (cyan partner / slate regular), **CategoryChip**, **CategoryIcon** — website markers
+- `components/characters/` — **CursorCharacter** — arrow + name pill; optional typed comment bubble that hides after 3s
+- `components/characters/` — **GuestbookNote** — cursor types a note → note card (+ photos) → posted, avatar leave-mark
+- `components/passport/` — **Passport** — closed → open 3D cover flip (art in `assets/passport/`)
+- `components/web/` — **WebHeadline** — WEBSITE ONLY (see below)
+
+### Intentional additions
+- **Icon** — the Figma components use diamond placeholders in icon slots; a Lucide wrapper lets consumers fill them consistently.
+
+## CONTENT FUNDAMENTALS
+Very little product copy was supplied, so this is inferred from the brand assets:
+- Brand name is written **Ventur.City** (logo lockup sets it as VENTUR / .CITY in caps). The ".city" is part of the name — keep the dot.
+- Display headlines are always **UPPERCASE** Paytone One — short, punchy, 1–4 words ("TOKENS", "COLOR", "RIDE THE CITY").
+- UI copy is sentence case, plain and short: "Continue with Platform", "Dismiss", field labels like "Title".
+- Actions are verbs in Title-ish sentence case on buttons ("Continue with Apple"); toast actions are a single bold word ("Dismiss").
+- Address the user as **you**; the brand speaks lightly as **we** if needed. Friendly, direct, energetic — never corporate.
+- No emoji seen anywhere. Don't use them.
+- Guideline docs use short one-sentence descriptions ("These are the values you will be able to use throughout the project").
+
+## VISUAL FOUNDATIONS
+- **Color**: one hero brand color, lime `green.100 #C4E860`. Neutrals split into a warm off-white "green" ramp (`green.5–20` for light surfaces/disabled fills) and a cool slate "black" ramp (`black.0–150`, note 0 is the *lightest*). Status: red, orange, blue ramps (50–120). Brand-on-dark (lime on `black.120`) is the signature pairing; black text sits on lime, never white.
+- **Semantic tokens**: `surface-*`, `elevation-light-0..4`, `elevation-dark-0..5`, `text-*`, `stroke-*` — map exactly to the Figma token sheet.
+- **Type**: Paytone One for display (always uppercase, 24–72px, tight leading, +1–2% tracking on the biggest sizes). Instrument Sans for everything else: h1 32/40, h2 24/30, h3 20/24, body 16/20, sm 12/16, in bold/medium/regular/italic.
+- **Spacing**: xs 4, s 8, m 16, xl 24, 2xl 32, 3xl 64 (no "l" step in the source).
+- **Radii**: sm 8 (inputs, small buttons), md 16 (buttons, toasts, icon buttons), lg 20, xl 24 (panels/cards), round 999 (toggle track). Generous, soft rounding everywhere; no sharp corners.
+- **Cards/panels**: white on a near-white page, 24px radius, extremely soft large shadow, no border. Swatch tiles inside use 1px `black.0` hairline borders, 8px radius.
+- **Shadows**: minimal. Only toasts carry a visible drop shadow (≈0 4 8 at ~18%). Buttons and inputs are flat.
+- **Borders**: inputs are borderless at rest; focus shows a 2px lime stroke. Hairlines are 1px light grey.
+- **Hover**: the same hue one step lighter (green.100→70, black.30→20, green.15→10). **Disabled**: paler fill + `black.10` label/icon. No opacity tricks.
+- **Press**: not specified in source — use the hover color; don't scale.
+- **Toggle knob** is a rounded square (squircle), not a circle — a distinctive detail; icon placeholders are rounded diamonds.
+- **Backgrounds**: flat fills only. No gradients, textures, illustrations or photography were supplied.
+- **Transparency/blur**: not used.
+- **Motion**: not specified. Keep it quick and subtle (120–160ms ease color/position transitions).
+- **Website headline (web only)**: marketing/website hero & section titles use uppercase Paytone One + 1–2 subtitle lines set in square-cornered highlight bars hugging the text (line 1 black.120 bar / white text, line 2 lime bar / black text; 600 18/24, 4/16 padding; wrapped lines of one subtitle 2px apart, separate subtitles 8px apart). Use `WebHeadline`. **Never** apply bars to body/paragraph copy, and never in the mobile app.
+- **Maps**: use `CityMap`. Real OSM geometry (Overpass API), restyled: light = white land, dark = black.120 land; green space in brand green, water in blue; roads as quiet tonal lines; no labels, pins, POIs or traffic. Tokens `--map-light-*` / `--map-dark-*` in `tokens/map.css`. Keep the OSM attribution.
+- **Place markers (website)**: partner merchant = cyan `blue.100` pin; regular = slate `black.30`. User photos are 3:4 cards in off-white (green.10) frames, max 2 stacked, endlessly shuffling; badge shows total shared photos. The place's own photo is a white-framed square.
+- **Cursor characters**: orange / red / blue / green arrows with 2px black.50 outline and matching name pill. Comments type out inside the pill, hold 3s, then collapse — never permanent.
+- **Layout**: mobile-first; full-width 40px CTAs, 44px inputs, 8px label-to-field gap.
+
+## ICONOGRAPHY
+- **Brand icon set** (`assets/icons/*.svg`, also inlined in the `Icon` component): 18 filled glyphs on a 24×24 grid, single-colour (`currentColor`; source colour is lime green.100). Categories: food, nightclub, shopping, beauty, wellness, entertainment, outdoors, services. Product: badge (two-tone, inner detail `--icon-contrast`), locate-me, no-edit, play, rax, socials, stamps, theatre, vicon, vicon-1.
+- Style: solid fills, rounded terminals, no outlines. Keep it that way — don't mix with outline icons where a brand glyph exists.
+- Default colour treatments: lime on black.120 / slate; white on slate pins and chips; black.120 on lime.
+- **Fallback**: Lucide (CDN `lucide@0.454.0`) only for generic UI glyphs the set lacks (arrows, plus/minus, close, check). Flagged substitution.
+- No emoji, no unicode glyph icons.
+- The **logomark** works as an app icon / avatar; use the PNGs in `assets/logos/`. Never redraw it.
+
+## Logos
+`assets/logos/`: `primary-horizontal-{colored,black,white}.png`, `primary-vertical-*.png`, `secondary-*.png` (wordmark, lime swash R), `logomark-*.png`. Colored versions on light backgrounds; white versions on `black.120`; black on lime.
+
+## Caveats
+- CityMap fetches live data from the public Overpass API (rate-limited; slow on big radii). Open sea isn't filled.
+- Fonts load from Google Fonts (no font binaries supplied).
+- Orange 70 is labelled `#3DBB4A` in the source (a typo — it renders as amber); used `#EBBB4A`.
+- Component dimensions measured from @2x PNGs; label 12px and toast action 14px bold are estimates.
+- Shadow values estimated.
+
+</script>
+<div id="root"></div>
+<script type="text/babel" src="reference/library.jsx"></script>
+<script type="text/babel" src="reference/app.jsx"></script>
+</body></html>

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Components" viewport="700x260" name="Website headline" subtitle="Website only — highlight bars wipe in line by line" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;font-family:var(--font-sans)}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { WebHeadline } = window.VenturCityDesignSystem_a97b28;
+function App(){const [k,setK]=React.useState(0);React.useEffect(()=>{const t=setInterval(()=>setK(x=>x+1),6000);return()=>clearInterval(t)},[]);
+return <div style={{display:'grid',gridTemplateColumns:'300px 300px',background:'#A6A6A6',padding:'28px 24px',gap:24,minHeight:260,boxSizing:'border-box'}}>
+ <WebHeadline animate replayKey={k} size="md" title="Now the table's full" lines={["Come back enough and the place starts to know you","RAX turns that into something real."]}/>
+ <WebHeadline animate replayKey={k} startDelay={300} size="md" titleColor="dark" title="The map of your whole neighborhood" lines={["Every pin leads somewhere.","Make plans, leave a mark, and explore more."]}/>
+</div>;}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

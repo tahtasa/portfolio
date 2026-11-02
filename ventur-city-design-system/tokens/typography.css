@@ -1,0 +1,17 @@
+:root{
+--display-2xl:400 72px/72px var(--font-display);--display-2xl-ls:0.02em;
+--display-xl:400 56px/60px var(--font-display);--display-xl-ls:0.01em;
+--display-lg:400 40px/42px var(--font-display);
+--display-md:400 32px/36px var(--font-display);
+--display-sm:400 24px/28px var(--font-display);
+--h1-bold:700 32px/40px var(--font-sans);--h1-medium:500 32px/40px var(--font-sans);--h1-ls:0.01em;
+--h2-bold:700 24px/30px var(--font-sans);--h2-medium:500 24px/30px var(--font-sans);--h2-ls:0.01em;
+--h3-bold:700 20px/24px var(--font-sans);--h3-medium:600 20px/24px var(--font-sans);
+--body-bold:700 16px/20px var(--font-sans);--body-medium:500 16px/20px var(--font-sans);--body-regular:400 16px/20px var(--font-sans);--body-italic:italic 400 16px/20px var(--font-sans);
+--sm-bold:700 12px/16px var(--font-sans);--sm-medium:500 12px/16px var(--font-sans);--sm-regular:400 12px/16px var(--font-sans);--sm-italic:italic 400 12px/16px var(--font-sans);
+}
+.vc-display-2xl{font:var(--display-2xl);letter-spacing:var(--display-2xl-ls);text-transform:uppercase}
+.vc-display-xl{font:var(--display-xl);letter-spacing:var(--display-xl-ls);text-transform:uppercase}
+.vc-display-lg{font:var(--display-lg);text-transform:uppercase}
+.vc-display-md{font:var(--display-md);text-transform:uppercase}
+.vc-display-sm{font:var(--display-sm);text-transform:uppercase}

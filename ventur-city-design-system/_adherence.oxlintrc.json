@@ -1,0 +1,496 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/buttons/**",
+              "components/characters/**",
+              "components/core/**",
+              "components/feedback/**",
+              "components/forms/**",
+              "components/map/**",
+              "components/passport/**",
+              "components/places/**",
+              "components/web/**",
+              "reference/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Instrument Sans|Paytone One))/i]",
+        "message": "Font not provided by the design system. Available: Instrument Sans, Paytone One."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|iconLeft|iconRight|fullWidth|social|disabled|children|onClick|type|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, iconLeft, iconRight, fullWidth, social, disabled, children, onClick, type, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|tertiary|ghost|ghost-light|ghost-brand)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'ghost-light' | 'ghost-brand'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CategoryChip'] > JSXAttribute > JSXIdentifier[name!=/^(?:category|label|partner|selected|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<CategoryChip> doesn't accept that prop. Declared props: category, label, partner, selected, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CategoryIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:category|size|color|style|key|ref|className|style|children)$/]",
+        "message": "<CategoryIcon> doesn't accept that prop. Declared props: category, size, color, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CategoryPin'] > JSXAttribute > JSXIdentifier[name!=/^(?:category|partner|size|style|key|ref|className|style|children)$/]",
+        "message": "<CategoryPin> doesn't accept that prop. Declared props: category, partner, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CityMap'] > JSXAttribute > JSXIdentifier[name!=/^(?:center|radius|theme|buildings|controls|height|minZoom|maxZoom|onMapClick|style|key|ref|className|style|children)$/]",
+        "message": "<CityMap> doesn't accept that prop. Declared props: center, radius, theme, buildings, controls, height, minZoom, maxZoom, onMapClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CityMap'] > JSXAttribute[name.name='theme'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<CityMap> theme must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CursorCharacter'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|color|message|typeSpeed|holdMs|onDone|style|key|ref|className|style|children)$/]",
+        "message": "<CursorCharacter> doesn't accept that prop. Declared props: name, color, message, typeSpeed, holdMs, onDone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GuestbookNote'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|color|message|avatarSrc|photos|typeSpeed|postDelay|replayKey|onDone|style|key|ref|className|style|children)$/]",
+        "message": "<GuestbookNote> doesn't accept that prop. Declared props: name, color, message, avatarSrc, photos, typeSpeed, postDelay, replayKey, onDone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|color|strokeWidth|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, color, strokeWidth, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|disabled|label|children|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<IconButton> doesn't accept that prop. Declared props: variant, size, disabled, label, children, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|tertiary|ghost)$/]",
+        "message": "<IconButton> variant must be one of 'primary' | 'secondary' | 'tertiary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<IconButton> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Option'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|children|disabled|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<Option> doesn't accept that prop. Declared props: icon, children, disabled, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Passport'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|defaultOpen|onToggle|width|duration|autoplay|autoplayDelay|interactive|centerClosed|closedSrc|openSrc|style|key|ref|className|style|children)$/]",
+        "message": "<Passport> doesn't accept that prop. Declared props: open, defaultOpen, onToggle, width, duration, autoplay, autoplayDelay, interactive, centerClosed, closedSrc, openSrc, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PhotoStackMarker'] > JSXAttribute > JSXIdentifier[name!=/^(?:photos|count|category|partner|width|interval|animate|style|key|ref|className|style|children)$/]",
+        "message": "<PhotoStackMarker> doesn't accept that prop. Declared props: photos, count, category, partner, width, interval, animate, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PlaceMarker'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|size|style|key|ref|className|style|children)$/]",
+        "message": "<PlaceMarker> doesn't accept that prop. Declared props: src, alt, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TextField'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|defaultValue|placeholder|onChange|theme|disabled|type|style|key|ref|className|style|children)$/]",
+        "message": "<TextField> doesn't accept that prop. Declared props: label, value, defaultValue, placeholder, onChange, theme, disabled, type, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TextField'] > JSXAttribute[name.name='theme'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<TextField> theme must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toast'] > JSXAttribute > JSXIdentifier[name!=/^(?:tone|icon|children|actionLabel|onAction|style|key|ref|className|style|children)$/]",
+        "message": "<Toast> doesn't accept that prop. Declared props: tone, icon, children, actionLabel, onAction, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toast'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:neutral|success|warn|danger)$/]",
+        "message": "<Toast> tone must be one of 'neutral' | 'success' | 'warn' | 'danger'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:checked|defaultChecked|onChange|disabled|label|style|key|ref|className|style|children)$/]",
+        "message": "<Toggle> doesn't accept that prop. Declared props: checked, defaultChecked, onChange, disabled, label, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WebHeadlineLine'] > JSXAttribute > JSXIdentifier[name!=/^(?:text|tone|key|ref|className|style|children)$/]",
+        "message": "<WebHeadlineLine> doesn't accept that prop. Declared props: text, tone."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WebHeadlineLine'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:dark|brand)$/]",
+        "message": "<WebHeadlineLine> tone must be one of 'dark' | 'brand'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "CategoryChip": {
+        "replaces": []
+      },
+      "CategoryIcon": {
+        "replaces": []
+      },
+      "CategoryPin": {
+        "replaces": []
+      },
+      "CityMap": {
+        "replaces": []
+      },
+      "CursorCharacter": {
+        "replaces": []
+      },
+      "GuestbookNote": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "IconButton": {
+        "replaces": []
+      },
+      "Option": {
+        "replaces": []
+      },
+      "Passport": {
+        "replaces": []
+      },
+      "PhotoStackMarker": {
+        "replaces": []
+      },
+      "PlaceMarker": {
+        "replaces": []
+      },
+      "TextField": {
+        "replaces": []
+      },
+      "Toast": {
+        "replaces": []
+      },
+      "Toggle": {
+        "replaces": []
+      },
+      "WebHeadlineLine": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--black-0",
+      "--black-10",
+      "--black-100",
+      "--black-120",
+      "--black-150",
+      "--black-20",
+      "--black-30",
+      "--black-5",
+      "--black-50",
+      "--black-70",
+      "--blue-100",
+      "--blue-120",
+      "--blue-50",
+      "--blue-70",
+      "--body-bold",
+      "--body-italic",
+      "--body-medium",
+      "--body-regular",
+      "--display-2xl",
+      "--display-2xl-ls",
+      "--display-lg",
+      "--display-md",
+      "--display-sm",
+      "--display-xl",
+      "--display-xl-ls",
+      "--elevation-dark-0",
+      "--elevation-dark-1",
+      "--elevation-dark-2",
+      "--elevation-dark-3",
+      "--elevation-dark-4",
+      "--elevation-dark-5",
+      "--elevation-light-0",
+      "--elevation-light-1",
+      "--elevation-light-2",
+      "--elevation-light-3",
+      "--elevation-light-4",
+      "--font-display",
+      "--font-sans",
+      "--green-0",
+      "--green-10",
+      "--green-100",
+      "--green-120",
+      "--green-15",
+      "--green-20",
+      "--green-30",
+      "--green-5",
+      "--green-50",
+      "--green-70",
+      "--h1-bold",
+      "--h1-ls",
+      "--h1-medium",
+      "--h2-bold",
+      "--h2-ls",
+      "--h2-medium",
+      "--h3-bold",
+      "--h3-medium",
+      "--map-dark-building",
+      "--map-dark-land",
+      "--map-dark-park",
+      "--map-dark-path",
+      "--map-dark-rail",
+      "--map-dark-road-major",
+      "--map-dark-road-minor",
+      "--map-dark-water",
+      "--map-dark-waterway",
+      "--map-light-building",
+      "--map-light-land",
+      "--map-light-park",
+      "--map-light-path",
+      "--map-light-rail",
+      "--map-light-road-major",
+      "--map-light-road-minor",
+      "--map-light-water",
+      "--map-light-waterway",
+      "--orange-100",
+      "--orange-120",
+      "--orange-50",
+      "--orange-70",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-round",
+      "--radius-sm",
+      "--radius-xl",
+      "--red-100",
+      "--red-120",
+      "--red-50",
+      "--red-70",
+      "--shadow-card",
+      "--shadow-toast",
+      "--sm-bold",
+      "--sm-italic",
+      "--sm-medium",
+      "--sm-regular",
+      "--space-2xl",
+      "--space-3xl",
+      "--space-m",
+      "--space-s",
+      "--space-xl",
+      "--space-xs",
+      "--stroke-brand",
+      "--stroke-primary-dark",
+      "--stroke-primary-light",
+      "--stroke-secondary",
+      "--surface-brand",
+      "--surface-brand-disable",
+      "--surface-brand-hover",
+      "--surface-danger-toast",
+      "--surface-dark",
+      "--surface-dark-disable",
+      "--surface-dark-hover",
+      "--surface-light",
+      "--surface-light-disable",
+      "--surface-light-hover",
+      "--surface-neutral-toast",
+      "--surface-off",
+      "--surface-success-toast",
+      "--surface-void",
+      "--surface-warn-toast",
+      "--text-brand",
+      "--text-brand-disable",
+      "--text-brand-hover",
+      "--text-danger",
+      "--text-hint-dark",
+      "--text-hint-light",
+      "--text-info",
+      "--text-primary-dark",
+      "--text-primary-dark-disable",
+      "--text-primary-dark-hover",
+      "--text-primary-light",
+      "--text-primary-light-disable",
+      "--text-primary-light-hover",
+      "--text-secondary",
+      "--text-success",
+      "--text-warn"
+    ],
+    "tokenKinds": {
+      "--font-display": "font",
+      "--font-sans": "font",
+      "--green-0": "color",
+      "--green-5": "color",
+      "--green-10": "color",
+      "--green-15": "color",
+      "--green-20": "color",
+      "--green-30": "color",
+      "--green-50": "color",
+      "--green-70": "color",
+      "--green-100": "color",
+      "--green-120": "color",
+      "--black-0": "color",
+      "--black-5": "color",
+      "--black-10": "color",
+      "--black-20": "color",
+      "--black-30": "color",
+      "--black-50": "color",
+      "--black-70": "color",
+      "--black-100": "color",
+      "--black-120": "color",
+      "--black-150": "color",
+      "--red-50": "color",
+      "--red-70": "color",
+      "--red-100": "color",
+      "--red-120": "color",
+      "--orange-50": "color",
+      "--orange-70": "color",
+      "--orange-100": "color",
+      "--orange-120": "color",
+      "--blue-50": "color",
+      "--blue-70": "color",
+      "--blue-100": "color",
+      "--blue-120": "color",
+      "--surface-brand": "color",
+      "--surface-brand-hover": "color",
+      "--surface-brand-disable": "color",
+      "--surface-light": "color",
+      "--surface-light-hover": "color",
+      "--surface-light-disable": "color",
+      "--surface-dark": "color",
+      "--surface-dark-hover": "color",
+      "--surface-dark-disable": "color",
+      "--surface-off": "color",
+      "--surface-void": "color",
+      "--elevation-light-0": "shadow",
+      "--elevation-light-1": "shadow",
+      "--elevation-light-2": "shadow",
+      "--elevation-light-3": "shadow",
+      "--elevation-light-4": "shadow",
+      "--elevation-dark-0": "shadow",
+      "--elevation-dark-1": "shadow",
+      "--elevation-dark-2": "shadow",
+      "--elevation-dark-3": "shadow",
+      "--elevation-dark-4": "shadow",
+      "--elevation-dark-5": "shadow",
+      "--text-brand": "font",
+      "--text-brand-hover": "font",
+      "--text-brand-disable": "font",
+      "--text-primary-light": "font",
+      "--text-primary-light-hover": "font",
+      "--text-primary-light-disable": "font",
+      "--text-primary-dark": "font",
+      "--text-primary-dark-hover": "font",
+      "--text-primary-dark-disable": "font",
+      "--text-hint-light": "font",
+      "--text-hint-dark": "font",
+      "--text-secondary": "font",
+      "--text-success": "font",
+      "--text-warn": "font",
+      "--text-danger": "font",
+      "--text-info": "font",
+      "--stroke-brand": "color",
+      "--stroke-primary-light": "color",
+      "--stroke-primary-dark": "color",
+      "--stroke-secondary": "color",
+      "--surface-neutral-toast": "color",
+      "--surface-success-toast": "color",
+      "--surface-warn-toast": "color",
+      "--surface-danger-toast": "color",
+      "--display-2xl": "color",
+      "--display-2xl-ls": "spacing",
+      "--display-xl": "color",
+      "--display-xl-ls": "spacing",
+      "--display-lg": "color",
+      "--display-md": "color",
+      "--display-sm": "color",
+      "--h1-bold": "color",
+      "--h1-medium": "color",
+      "--h1-ls": "spacing",
+      "--h2-bold": "color",
+      "--h2-medium": "color",
+      "--h2-ls": "spacing",
+      "--h3-bold": "color",
+      "--h3-medium": "color",
+      "--body-bold": "color",
+      "--body-medium": "color",
+      "--body-regular": "color",
+      "--body-italic": "color",
+      "--sm-bold": "color",
+      "--sm-medium": "color",
+      "--sm-regular": "color",
+      "--sm-italic": "color",
+      "--space-xs": "spacing",
+      "--space-s": "spacing",
+      "--space-m": "spacing",
+      "--space-xl": "spacing",
+      "--space-2xl": "spacing",
+      "--space-3xl": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-round": "radius",
+      "--shadow-toast": "shadow",
+      "--shadow-card": "shadow",
+      "--map-light-land": "color",
+      "--map-light-building": "color",
+      "--map-light-road-minor": "color",
+      "--map-light-road-major": "color",
+      "--map-light-path": "color",
+      "--map-light-rail": "color",
+      "--map-light-park": "color",
+      "--map-light-water": "color",
+      "--map-light-waterway": "color",
+      "--map-dark-land": "color",
+      "--map-dark-building": "color",
+      "--map-dark-road-minor": "color",
+      "--map-dark-road-major": "color",
+      "--map-dark-path": "color",
+      "--map-dark-rail": "color",
+      "--map-dark-park": "color",
+      "--map-dark-water": "color",
+      "--map-dark-waterway": "color"
+    },
+    "fontFamilies": [
+      "Instrument Sans",
+      "Paytone One"
+    ]
+  }
+}

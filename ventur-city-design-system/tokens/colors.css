@@ -1,0 +1,29 @@
+:root{
+/* Palette — green */
+--green-0:#FFFFFF;--green-5:#F4F6EC;--green-10:#EFF2E6;--green-15:#E5E8DB;--green-20:#DBDECF;--green-30:#EBF7CB;--green-50:#E0F3AC;--green-70:#D4EE8B;--green-100:#C4E860;--green-120:#9DC334;
+/* Palette — black (cool slate ramp, 0 = lightest) */
+--black-0:#B8BABD;--black-5:#83868C;--black-10:#646A74;--black-20:#464F5D;--black-30:#2D3746;--black-50:#232B38;--black-70:#1F2733;--black-100:#181E28;--black-120:#0E1219;--black-150:#000000;
+/* Palette — red / orange / blue */
+--red-50:#DE8080;--red-70:#DB5E5E;--red-100:#E03A3A;--red-120:#D42222;
+--orange-50:#E9C677;--orange-70:#EBBB4A;--orange-100:#EDB024;--orange-120:#D99C11;
+--blue-50:#89D2E5;--blue-70:#65CEE9;--blue-100:#38C4E8;--blue-120:#26B5DA;
+
+/* Surface */
+--surface-brand:var(--green-100);--surface-brand-hover:var(--green-70);--surface-brand-disable:var(--green-50);
+--surface-light:var(--green-0);--surface-light-hover:var(--green-5);--surface-light-disable:var(--black-10);
+--surface-dark:var(--black-120);--surface-dark-hover:var(--black-100);--surface-dark-disable:var(--black-10);
+--surface-off:var(--green-0);--surface-void:var(--black-150);
+/* Elevation */
+--elevation-light-0:var(--green-0);--elevation-light-1:var(--green-5);--elevation-light-2:var(--green-10);--elevation-light-3:var(--green-15);--elevation-light-4:var(--green-20);
+--elevation-dark-0:var(--black-120);--elevation-dark-1:var(--black-100);--elevation-dark-2:var(--black-70);--elevation-dark-3:var(--black-50);--elevation-dark-4:var(--black-30);--elevation-dark-5:var(--black-20);
+/* Text */
+--text-brand:var(--green-100);--text-brand-hover:var(--green-70);--text-brand-disable:var(--green-50);
+--text-primary-light:var(--green-0);--text-primary-light-hover:var(--green-5);--text-primary-light-disable:var(--black-10);
+--text-primary-dark:var(--black-120);--text-primary-dark-hover:var(--black-100);--text-primary-dark-disable:var(--black-10);
+--text-hint-light:var(--black-0);--text-hint-dark:var(--black-20);--text-secondary:var(--black-5);
+--text-success:var(--green-120);--text-warn:var(--orange-120);--text-danger:var(--red-120);--text-info:var(--blue-120);
+/* Stroke */
+--stroke-brand:var(--green-100);--stroke-primary-light:var(--green-5);--stroke-primary-dark:var(--black-100);--stroke-secondary:var(--black-5);
+/* Feedback surfaces (toast) */
+--surface-neutral-toast:var(--black-20);--surface-success-toast:var(--green-70);--surface-warn-toast:var(--orange-70);--surface-danger-toast:var(--red-50);
+}

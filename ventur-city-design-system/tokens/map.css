@@ -1,0 +1,7 @@
+/* Map palette — stylized OpenStreetMap. Light = white land, dark = black.120 land. */
+:root{
+--map-light-land:var(--green-0);--map-light-building:var(--green-5);--map-light-road-minor:var(--green-15);--map-light-road-major:var(--green-20);--map-light-path:var(--green-15);--map-light-rail:var(--black-0);
+--map-light-park:var(--green-50);--map-light-water:#BEE6F1;--map-light-waterway:var(--blue-50);
+--map-dark-land:var(--black-120);--map-dark-building:var(--black-100);--map-dark-road-minor:var(--black-50);--map-dark-road-major:var(--black-30);--map-dark-path:var(--black-70);--map-dark-rail:var(--black-20);
+--map-dark-park:#394721;--map-dark-water:#154353;--map-dark-waterway:#1A5568;
+}
